@@ -8,7 +8,7 @@ module.exports = function (obj, blacklist) {
   };
 
   function isValidForBuild(key, val) {
-    if (isBlacklisted(key) || key === 'from' || !willResolveFromGitRepo(key, val)) {
+    if (isBlacklisted(key) || !isReferenceToGitRepo(key, val)) {
         return false;
     }
 
@@ -19,8 +19,10 @@ module.exports = function (obj, blacklist) {
     return blacklist.has(key);
   };
 
-  function willResolveFromGitRepo(key, val) {
-    if (key ==='resolved' && !isGitRepo(val) && this.from !== val) {
+  function isReferenceToGitRepo(key, val) {
+    var isReference = (key === 'resolved' || key === 'from');
+
+    if (isReference && !isGitRepo(val)) {
       return false;
     }
 
