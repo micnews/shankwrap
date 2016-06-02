@@ -70,6 +70,30 @@ test('it does not remove \'resolved\' properties when the link is a git repo', f
   t.end();
 });
 
+test('it removes \'from\' properties when the link is not a git repo', function (t) {
+  var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set()));
+
+  if (obj['dependencies']['jack-sparrow']['from']) {
+    t.fail();
+  } else {
+    t.pass();
+  }
+
+  t.end();
+});
+
+test('it does not remove \'from\' properties when the link is a git repo', function (t) {
+  var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set()));
+
+  if (obj['dependencies']['jack-sparrow']['dependencies']['foreground-child']['from']) {
+    t.pass();
+  } else {
+    t.fail();
+  }
+
+  t.end();
+});
+
 test('it removes blacklisted properties', function (t) {
   var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set(['jack-sparrow'])));
 
