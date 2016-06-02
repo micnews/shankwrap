@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/micnews/shankwrap/issues"
   },
-  "homepage": "https://github.com/micnews/shankwrap#readme"
+  "homepage": "https://github.com/micnews/shankwrap#readme",
+  "devDependencies": {
+    "tape": "^4.5.1"
+  }
 }
