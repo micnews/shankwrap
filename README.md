@@ -3,6 +3,7 @@
 A javascript module that cleans up the `npm-shrinkwrap.json` file created by running `npm shrinkwrap`.
 
 It does the following:
+
 1. Removes any `from` or `resolved` properties for which the link supplied is NOT a git repository.
 1. Allows for custom blacklisting of dependencies through the command line. (Useful because shrinkwrap does NOT remove optional dependencies.)
 
