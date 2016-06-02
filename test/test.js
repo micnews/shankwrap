@@ -49,59 +49,34 @@ test('it does not remove non-dependency related keys', function (t) {
 test('it removes \'resolved\' properties when the link is not a git repo', function (t) {
   var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set()));
 
-  if (obj['dependencies']['jack-sparrow']['resolved']) {
-    t.fail();
-  } else {
-    t.pass();
-  }
-
+  t.notOk(obj['dependencies']['jack-sparrow']['resolved']);
   t.end();
 });
 
 test('it does not remove \'resolved\' properties when the link is a git repo', function (t) {
   var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set()));
 
-  if (obj['dependencies']['jack-sparrow']['dependencies']['foreground-child']['resolved']) {
-    t.pass();
-  } else {
-    t.fail();
-  }
-
+  t.ok(obj['dependencies']['jack-sparrow']['dependencies']['foreground-child']['resolved']);
   t.end();
 });
 
 test('it removes \'from\' properties when the link is not a git repo', function (t) {
   var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set()));
 
-  if (obj['dependencies']['jack-sparrow']['from']) {
-    t.fail();
-  } else {
-    t.pass();
-  }
-
+  t.notOk(obj['dependencies']['jack-sparrow']['from']);
   t.end();
 });
 
 test('it does not remove \'from\' properties when the link is a git repo', function (t) {
   var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set()));
 
-  if (obj['dependencies']['jack-sparrow']['dependencies']['foreground-child']['from']) {
-    t.pass();
-  } else {
-    t.fail();
-  }
-
+  t.ok(obj['dependencies']['jack-sparrow']['dependencies']['foreground-child']['from']);
   t.end();
 });
 
 test('it removes blacklisted properties', function (t) {
   var obj = JSON.parse(shankwrap(TEST_OBJECT, new Set(['jack-sparrow'])));
 
-  if (obj['dependencies']['jack-sparrow']) {
-    t.fail();
-  } else {
-    t.pass();
-  }
-
+  t.notOk(obj['dependencies']['jack-sparrow']);
   t.end();
 });
