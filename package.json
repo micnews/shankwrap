@@ -1,0 +1,23 @@
+{
+  "name": "shankwrap",
+  "version": "1.0.0",
+  "description": "shonkwrap with extra features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/micnews/shankwrap.git"
+  },
+  "keywords": [
+    "shrinkwrap",
+    "shonkwrap"
+  ],
+  "author": "mic.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micnews/shankwrap/issues"
+  },
+  "homepage": "https://github.com/micnews/shankwrap#readme"
+}
