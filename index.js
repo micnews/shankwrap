@@ -20,7 +20,7 @@ module.exports = function (obj, blacklist) {
   }
 
   function isReferenceToGitRepo (key, val) {
-    var isReference = (key === 'resolved' || key === 'from');
+    var isReference = (key === 'resolved');
 
     if (isReference && !isGitRepo(val)) {
       return false;
